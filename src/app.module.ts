@@ -3,6 +3,7 @@ import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { UsersModule } from './users/users.module';
 import { MongooseModule } from '@nestjs/mongoose';
+import { AccessModule } from './access/access.module';
 
 @Module({
   imports: [
@@ -10,6 +11,7 @@ import { MongooseModule } from '@nestjs/mongoose';
       'mongodb+srv://enriccou:whz2025dev@cluster0.3mw4lbl.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0'
     ),
     UsersModule,
+    AccessModule,
   ],
   controllers: [AppController],
   providers: [AppService],
