@@ -4,6 +4,7 @@ import { AppService } from './app.service';
 import { UsersModule } from './users/users.module';
 import { MongooseModule } from '@nestjs/mongoose';
 import { AccessModule } from './userAccess/access.module';
+import { SiteAccessModule } from './siteAccess/site-access.module';
 
 @Module({
   imports: [
@@ -12,6 +13,7 @@ import { AccessModule } from './userAccess/access.module';
     ),
     UsersModule,
     AccessModule,
+    SiteAccessModule,
   ],
   controllers: [AppController],
   providers: [AppService],
