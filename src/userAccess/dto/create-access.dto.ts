@@ -1,12 +1,13 @@
-import { IsDate, IsDateString, IsMilitaryTime, IsNotEmpty } from "class-validator";
+import { ApiProperty } from '@nestjs/swagger';
+import { IsDateString, IsNotEmpty } from 'class-validator';
 
 export class CreateAccessDto {
+  @ApiProperty()
+  @IsNotEmpty()
+  userID: string;
 
-    @IsNotEmpty()
-    userID: string;
-
-    @IsNotEmpty()
-    @IsDateString()
-    dateAccess: string;
-
+  @ApiProperty()
+  @IsNotEmpty()
+  @IsDateString()
+  dateAccess: string;
 }

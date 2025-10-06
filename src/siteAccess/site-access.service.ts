@@ -15,22 +15,17 @@ export class SiteAccessService {
     return await new this.siteAccessModel(createSiteAccessDto).save();
   }
 
+  async increment(updateSiteAccessDto: UpdateSiteAccessDto) {
+    return await this.siteAccessModel.findOneAndUpdate(updateSiteAccessDto, { $inc: { countSiteAccess: +1 }}).exec()
+  }
+
   async findAll() {
     return await this.siteAccessModel.find().exec();
   }
 
-  async findOne(dateSiteAccess: string) {
-    return await this.siteAccessModel.findOne({dateSiteAccess: dateSiteAccess}).exec();
+  async findOne(oneDateSiteAccess: string) {
+    return await this.siteAccessModel.find({dateSiteAccess: oneDateSiteAccess}).exec();
   }
 
-  //async update(dateAccess: string, updateSiteAccessDto: UpdateSiteAccessDto) {
-    //const updateSiteAccess = this.siteAccessModel.updateOne({dateSiteAccess: dateAccess}, updateSiteAccessDto)
-    //return await updateSiteAccess.exec()
-  //}
-
-  async increment(dateSiteAccess: string, updateSiteAccessDto: UpdateSiteAccessDto) {
-    const updateSiteAccess = this.siteAccessModel.updateOne({dateSiteAccess: dateSiteAccess}, { $inc: { countSiteAccess: +1 } })
-    return await updateSiteAccess.exec()
-  }
 }
 

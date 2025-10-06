@@ -12,18 +12,19 @@ export class SiteAccessController {
     return this.siteAccessService.create(createSiteAccessDto);
   }
 
+  @Post('increment')
+  async increment(@Body() updateSiteAccessDto: UpdateSiteAccessDto){
+    return this.siteAccessService.increment(updateSiteAccessDto);
+  }
+
   @Get()
   async findAll() {
     return this.siteAccessService.findAll();
   }
 
-  @Get('oneDateSiteAccess')
-  async findOne(@Body('dateSiteAccess') dateSiteAccess: string) {
-    return this.siteAccessService.findOne(dateSiteAccess);
+  @Get(':oneDateSiteAccess')
+  async findOne(@Param('oneDateSiteAccess') oneDateSiteAccess: string ) {
+    return this.siteAccessService.findOne(oneDateSiteAccess);
   }
   
-  @Post('/increment')
-  async increment(@Body("dateSiteAccess") dateSiteAccess: string, updateSiteAccessDto: UpdateSiteAccessDto){
-    return this.siteAccessService.increment(dateSiteAccess, updateSiteAccessDto);
-  }
 }
